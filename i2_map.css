@@ -1,0 +1,966 @@
+/*
+Ideas for improvment:
+    Remeasure/recalculate min-height of #main
+    Fix the svg
+    Convert the header (div) height to em in relation to the text header
+    *** Fix link font sizes on mobile ***
+*/
+
+/* Official SHC Fontfaces */
+
+@font-face {
+    font-family: 'Calluna Sans';
+    src: url('fonts/CallunaSans-Regular.eot');
+    src: url('fonts/CallunaSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CallunaSans-Regular.woff') format('woff'),
+        url('fonts/CallunaSans-Regular.woff2') format('woff2'),
+        url('fonts/CallunaSans-Regular.ttf') format('truetype'),
+        url('fonts/CallunaSans-Regular.svg#CallunaSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calluna Sans';
+    src: url('fonts/CallunaSans-Bold.eot');
+    src: url('fonts/CallunaSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CallunaSans-Bold.woff') format('woff'),
+        url('fonts/CallunaSans-Bold.woff2') format('woff2'),
+        url('fonts/CallunaSans-Bold.ttf') format('truetype'),
+        url('fonts/CallunaSans-Bold.svg#CallunaSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calluna Sans';
+    src: url('fonts/CallunaSans-Italic.eot');
+    src: url('fonts/CallunaSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CallunaSans-Italic.woff') format('woff'),
+        url('fonts/CallunaSans-Italic.woff2') format('woff2'),
+        url('fonts/CallunaSans-Italic.ttf') format('truetype'),
+        url('fonts/CallunaSans-Italic.svg#CallunaSans-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calluna Sans';
+    src: url('fonts/CallunaSans-BoldItalic.eot');
+    src: url('fonts/CallunaSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('fonts/CallunaSans-BoldItalic.woff') format('woff'),
+        url('fonts/CallunaSans-BoldItalic.woff2') format('woff2'),
+        url('fonts/CallunaSans-BoldItalic.ttf') format('truetype'),
+        url('fonts/CallunaSans-BoldItalic.svg#CallunaSans-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calluna';
+    src: url('fonts/Calluna-Regular.eot');
+    src: url('fonts/Calluna-Regular.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Calluna-Regular.woff2') format('woff2'),
+        url('fonts/Calluna-Regular.woff') format('woff'),
+        url('fonts/Calluna-Regular.ttf') format('truetype'),
+        url('fonts/Calluna-Regular.svg#Calluna-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calluna';
+    src: url('fonts/Calluna-Bold.eot');
+    src: url('fonts/Calluna-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Calluna-Bold.woff2') format('woff2'),
+        url('fonts/Calluna-Bold.woff') format('woff'),
+        url('fonts/Calluna-Bold.ttf') format('truetype'),
+        url('fonts/Calluna-Bold.svg#Calluna-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Calluna';
+    src: url('fonts/Calluna-BoldIt.eot');
+    src: url('fonts/Calluna-BoldIt.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Calluna-BoldIt.woff2') format('woff2'),
+        url('fonts/Calluna-BoldIt.woff') format('woff'),
+        url('fonts/Calluna-BoldIt.ttf') format('truetype'),
+        url('fonts/Calluna-BoldIt.svg#Calluna-BoldIt') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Official SHC Colors:
+    Irish Green
+        Hex #00573D
+        RGB 0, 87, 63
+    Founders Blue
+        Hex #185A7D
+        RGB 22, 92, 125
+    Shamrock Green
+        Hex #6bA53A
+        RGB 107, 165, 57
+    Champion Gold
+        Hex #857550
+        RGB 133, 117, 80
+*/
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    --irish-green: #00573D;
+    --founders-blue: #185A7D;
+    --shamrock-green: #6bA53A;
+    --champion-gold: #857550;
+    --calluna-sans: 'Calluna Sans', Helvetica, Arial, sans-serif;
+    --calluna: 'Calluna', 'Times New Roman', serif;
+    font-family: var(--calluna-sans);
+    min-height: 91vh;
+    margin: 0;
+}
+
+.header{
+    background-color: var(--irish-green);
+    color: white;
+    width: 100%;
+    height: 7vh;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    text-align: center;
+}
+
+h1{
+    margin: auto;
+}
+
+h1 span,i{
+    font-family: var(--calluna);
+}
+
+.primary-welcome-header{
+    display: none;
+    font-size: 2em;
+}
+
+.alternate-welcome-header{
+    font-size: 1.5em;
+    text-align: center;
+    color: var(--irish-green);
+}
+
+.header img,embed{
+    height: 4vh;
+    margin: 1.5vh;
+}
+
+.i2-logo{
+    position: absolute;
+    left: 0px;
+    color: white;
+}
+
+.SHC-logo{
+    position: absolute;
+    right: 0px;
+}
+
+#main{
+    margin: 7vh calc(0.5vw + 8px) 0;
+    padding-top: 1vh;
+    /* padding-bottom: 1vh; */
+    min-height: 91vh;
+}
+
+h2{
+    font-size: 1.125em;
+}
+
+#search_by_name_top_div{
+    text-align: center;
+}
+
+label{
+    font-weight: normal;
+    font-size: 0.75em;
+}
+
+select{
+    font-family: var(--calluna-sans);
+    font-size: 0.75em;
+}
+
+#class_of_select{
+    border: none;
+    width: 45.6px;
+}
+
+option{
+    transition: background-color, 0.5s;
+}
+
+option:hover{
+    background-color: var(--irish-green);
+    color: white;
+}
+
+#search_box{
+    margin-top: 1vh;
+    border: 0.05em solid var(--irish-green);
+    border-radius: 0.2em;
+    font-family: var(--calluna-sans);
+}
+
+#search_box:focus{
+    border: 0.1em solid var(--irish-green);
+}
+
+/*
+#name_select{
+    margin-top: 1vh;
+}*/
+
+#measure{
+    border: none;
+    visibility: hidden;
+    position: absolute;
+}
+
+#filter_div{
+    margin-top: 1vh;
+}
+
+/* #filter_div div{
+    display: inline-block;
+} */
+
+#filter_div button{
+    display: inline-block;
+    border: none;
+    /* appearance: unset; */
+    font-family: var(--calluna-sans);
+    padding: 0.5vh;
+    background-color: transparent;
+    border: 0.5px solid transparent;
+    border-radius: 1vh;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#filter_div button[data-selected="true"]{
+    color: white;
+    background-color: var(--irish-green);
+}
+
+#filter_div button[data-selected="true"] a{
+    color: white;
+}
+
+#filter_div .subfilter-div{
+    display: inline-block;
+    padding: 0.5vh;
+    border-radius: 1vh;
+    transition: width 0.3s;
+    width: fit-content;
+}
+
+#filter_div .subfilter-div[data-selected="true"]{
+    background-color: rgba(107, 165, 57, 0.2);
+    border: 0.5px solid var(--irish-green);
+    width: auto;
+}
+
+#filter_div .subfilter-div[data-selected="true"] button:first-child{
+    font-weight: bold;
+}
+
+#presentation_subfilter_div[data-selected="false"] button:nth-child(n + 2){
+    width: 0;
+    display: none;
+    transition: width 0.3s;
+    /* Fix transition; Add delay for each individual button, 0.1 transition time for each and increasing delay for each by 0.1s */
+}
+
+#presentation_subfilter_div[data-selected="true"] button:nth-child(n + 2){
+    width: auto;
+    display: auto;
+}
+
+#search_by_name_desktop_hr{
+    display: none;
+    margin: 2vh 0;
+}
+
+#search_by_name_bottom_div{
+    display: none;
+    text-align: center;
+}
+
+table, p{
+    font-size: 0.75em;
+}
+
+table{
+    border-collapse: collapse;
+    table-layout: auto;
+    /* Consider fixed; if switching to fixed, uncomment three col:nth-child()s below */
+    margin: auto;
+    width: 94vw;
+}
+
+table colgroup col{
+    transition: width, 1s;
+}
+
+table colgroup col:nth-child(-n + 2){
+    border-right: 0.25vh solid var(--irish-green);
+}
+
+table colgroup col:nth-child(2){
+    width: 70px;
+}
+
+/*
+#search_by_name_results_table colgroup col:nth-child(1){
+    width: 40%;
+}
+
+#search_by_name_results_table colgroup col:nth-child(2){
+    width: 12%;
+}
+
+#search_by_name_results_table colgroup col:nth-child(3){
+    width: 45%;
+}*/
+
+thead{
+    padding-bottom: 0.5vh;
+    border-bottom: 0.5vh solid var(--irish-green);
+}
+
+tbody{
+    font-weight: normal;
+}
+
+tbody tr td:nth-child(1):has(a){
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+tbody tr td:nth-child(1):not(:has(a)){
+    font-size: 1em;
+}
+
+tbody tr td:nth-child(3):not(:has(a)){
+    font-size: 1em;
+}
+
+#search_by_name_results_table tbody tr:nth-child(even){
+    background-color: rgba(107, 165, 57, 0.2);
+    /* Shamrock Green at 80% transparency */
+}
+
+a{
+    text-decoration: none;
+}
+
+/*
+a:not(.icon):not(.award-icon):not(.classroom-link){
+    color: var(--irish-green);
+}
+*/
+
+a:not(.icon):not(.award-icon):not(.error-link){
+    /* color: black; */
+    color: var(--irish-green);
+    font-size: 1em /*0.75em*/;
+    cursor: pointer;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s, color 0.3s;
+}
+
+a:not(.icon):not(.award-icon):not(.error-link):hover{
+    /* color: var(--founders-blue);
+    /*text-decoration: underline;
+    text-decoration-thickness: 1px; /* Consider removal */
+    background-size: 100% 1.5px;
+}
+
+.classroom-link, .error-link{
+    color: black !important;
+    transition: color 0.3s;
+}
+
+.classroom-link:hover{
+    color: var(--founders-blue) !important;
+}
+
+table a:not(.icon){
+    font-size: 1em;
+}
+
+table .icon{
+    margin-left: 0.225em;
+}
+
+#search_by_name_no_results{
+    display: none;
+}
+
+.mobile-hr{
+    border-top: 2px solid var(--irish-green);
+}
+
+#search_by_room_top_div{
+    text-align: center;
+}
+
+#classroom_select{
+    border: none;
+    margin-bottom: 1vh;
+}
+
+#search_by_room_map{
+    display: grid;
+    grid-template-columns: 5.40vw, 6.95vw, 8.49vw, 3.24vw, 9.11vw, 10.80vw, 10.80vw, 4.78vw, 6.48vw, 6.33vw, 5.09vw, 6.17vw, 4.94vw, 5.40vw;
+    grid-template-rows: 11.42vw, 11.27vw, 12.35vw, 10.80vw, 4.94vw, 13.58vw;
+    width: 94vw;
+    margin: auto;
+    --border-details: 0.2px solid var(--irish-green);
+    border: var(--border-details);
+    justify-items: stretch;
+    align-items: stretch;
+    /* grid-template-columns: ; 
+    14 columns total
+    total width 94vw 
+    6 rows total
+    */
+}
+
+#search_by_room_map button{
+    border: 0;
+    font-family: var(--calluna);
+    transition: background-color 0.5s, color 0.3s;
+}
+
+#search_by_room_map button:enabled[data-selected="false"]:hover{
+    background-color: rgba(107, 165, 57, 0.2) !important;
+    /* Shamrock Green at 80% transparency */
+    color: black !important;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+#search_by_room_map button:nth-child(1){
+    grid-row: 1;
+    grid-column: 2 / span 2;
+    border-bottom: var(--border-details);
+    border-left: var(--border-details);
+    height: 11.42vw;
+}
+
+#search_by_room_map button:nth-child(2){
+    grid-row: 2;
+    grid-column: 2 / span 2;
+    border-bottom: var(--border-details);
+    border-left: var(--border-details);
+    height: 11.27vw;
+}
+
+#search_by_room_map button:nth-child(3){
+    grid-row: 3;
+    grid-column: 2 / span 2;
+    border-bottom: var(--border-details);
+    border-left: var(--border-details);
+    height: 12.35vw;
+}
+
+#search_by_room_map button:nth-child(4){
+    grid-row: 6;
+    grid-column: 1 / span 2;
+    border-right: var(--border-details);
+    height: 13.58vw;
+}
+
+#search_by_room_map button:nth-child(5){
+    grid-row: 6;
+    grid-column: 3 / span 2;
+    border-right: var(--border-details);
+    height: 13.58vw;
+}
+
+#search_by_room_map button:nth-child(6){
+    grid-row: 6;
+    grid-column: 5 / span 2;
+    border-right: var(--border-details);
+    height: 13.58vw;
+}
+
+#search_by_room_map button:nth-child(7){
+    grid-row: 4;
+    grid-column: 6 / span 1;
+    border-left: var(--border-details);
+    border-right: var(--border-details);
+    border-bottom: var(--border-details);
+    height: 10.8vw;
+}
+
+#search_by_room_map button:nth-child(8){
+    grid-row: 6;
+    grid-column: 7 / span 1;
+    border-right: var(--border-details);
+    height: 13.58vw;
+}
+
+#search_by_room_map button:nth-child(9){
+    grid-row: 4;
+    grid-column: 8 / span 2;
+    border-left: var(--border-details);
+    border-right: var(--border-details);
+    border-bottom: var(--border-details);
+    height: 10.8vw;
+}
+
+#search_by_room_map button:nth-child(10){
+    grid-row: 6;
+    grid-column: 9 / span 2;
+    border-left: var(--border-details);
+    border-right: var(--border-details);
+    height: 13.58vw;
+}
+
+#search_by_room_map button:nth-child(11){
+    grid-row: 6;
+    grid-column: 11 / span 2;
+    border-right: var(--border-details);
+    height: 13.58vw;
+}
+
+#search_by_room_map button:nth-child(12){
+    grid-row: 6;
+    grid-column: 13 / span 2;
+    height: 13.58vw;
+}
+
+#search_by_room_map button:nth-child(13){
+    grid-row: 3;
+    grid-column: 12 / span 2;
+    border-bottom: var(--border-details);
+    border-right: var(--border-details);
+    height: 12.35vw;
+}
+
+#search_by_room_map button:nth-child(14){
+    grid-row: 2;
+    grid-column: 12 / span 2;
+    border-bottom: var(--border-details);
+    border-right: var(--border-details);
+    height: 11.27vw;
+}
+
+#search_by_room_map button:nth-child(15){
+    grid-row: 1;
+    grid-column: 12 / span 2;
+    border-bottom: var(--border-details);
+    border-right: var(--border-details);
+    height: 11.42vw;
+}
+
+#search_by_room_map div{
+    min-width: 0.01vw;
+    min-height: 0.01vh;
+}
+
+#stairwell-1{
+    grid-area: 4 / 2 / 5 / 6;
+    border-left: var(--border-details);
+    border-bottom: var(--border-details);
+}
+
+#space-1{
+    grid-area: 4 / 7 / 5 / 8;
+    border-bottom: var(--border-details);
+}
+
+#hallway{
+    grid-area: 5 / 1 / 6 / 15;
+    /* height: 7.21vh; */
+    height: 4.94vw;
+    border-bottom: var(--border-details);
+}
+
+#stairwell-2{
+    grid-area: 4 / 10 / 5 / 14;
+    border-right: var(--border-details);
+    border-bottom: var(--border-details);
+}
+
+#courtyard{
+    grid-area: 1 / 4 / 4 / 12;
+    border-left: var(--border-details);
+    border-right: var(--border-details);
+    border-bottom: var(--border-details);
+}
+
+#search_by_room_desktop_hr{
+    display: none;
+    margin: 2vh 0;
+}
+
+#search_by_room_bottom_div{
+    display: none;
+    text-align: center;
+}
+
+#search_by_room_results_table tbody tr:nth-child(even) td:nth-child(-n + 2){
+    background-color: rgba(107, 165, 57, 0.2);
+    /* Shamrock Green at 80% transparency */
+}
+
+.legend{
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    height: fit-content;
+    margin: calc(1vh - 0.25em) auto 0 auto;
+    background-color: white;
+    transition: background-color 0.25s, border 0.25s;
+    transition-duration: 0.5s;
+}
+
+
+.legend:target{
+    /* background-color: rgba(107, 165, 57, 0.2); */
+    border: 2px solid var(--irish-green);
+    background-color: rgba(22, 92, 125, 0.2);
+    /* border: 2px solid var(--founders-blue); */
+}
+
+.legend-section{
+    display: inline-block;
+    justify-items: center;
+}
+
+.legend a{
+    cursor: default;
+}
+
+.legend p{
+    width: 100%;
+    text-align: center;
+    display: inline;
+    /* text-decoration-thickness: none; */
+    /* transition: text-decoration-thickness 1s; */
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease 0.5s, color 0.3s ease 0.5s;
+}
+
+.legend div:nth-child(-n + 3) p{
+    margin-right: 2vh;
+}
+
+.legend p:target{
+    color: var(--irish-green);
+    background-size: 100% 1.5px;
+
+    /*
+    text-decoration: underline;
+    text-decoration-thickness: 1em;
+    text-decoration-color: var(--irish-green);
+    */
+}
+
+.icon{
+    height: 0.75em;
+    width: 0.75em;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.award-icon{
+    color: var(--irish-green);
+    /* cursor: default; */
+}
+
+.infographics-only{
+    background-color: var(--irish-green);
+}
+
+.physical-prototype-demonstration{
+    background-color: var(--shamrock-green);
+}
+
+.digital-prototype-demonstration{
+    background-color: var(--founders-blue);
+}
+
+/* .footer-hr{
+    display: none;
+    width: 100%;
+    border-color: var(--irish-green);
+    color: var(--irish-green);
+    background-color: var(--irish-green);
+}*/
+
+footer{
+    background-color: var(--irish-green);
+    margin-top: 0.5em;
+    padding: 0.5em 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    font-size: 0.75em;
+    /* background: linear-gradient(#ffffff,#6bA53A); */
+}
+
+@media (min-width: 1050px){
+    body{
+        min-height: 88vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+    }
+
+    .header{
+        /* height: 10vh; */
+        height: 5em;
+    }
+
+    .primary-welcome-header{
+        display: block;
+        /* line-height: 10vh; */
+        line-height: 2.5em;
+    }
+    
+    .alternate-welcome-header{
+        display: none;
+    }
+
+    .header img{
+        /* height: 6vh;
+        margin: 2vh; */
+        height: 3em;
+        margin: 1em;
+        grid-row: 1; /* necessary? */
+        grid-column: 1 / span 2; /* necessary? */
+    }
+
+    #main{
+        margin: 10vh 1vw 0;
+        width: 98vw;
+        min-height: 88vh;
+        display: grid;
+        grid-auto-columns: 48vw 48vw;
+        grid-auto-rows: auto;
+    }
+
+    h2{
+        font-size: 1.5em;
+    }
+
+    #search_by_name_div{
+        grid-column: 1;
+        grid-row: 1;
+        padding-right: 1vw;
+        /* min-height: calc(100vh - 2.5em - 10vh - 19.56px - 1vh); */
+    }
+
+    #class_of_select{
+        width: 54.22px;
+    }
+
+    select{
+        font-size: 1em;
+    }
+
+    #filter_div button[data-selected="false"]:hover{
+        background-color: rgba(107, 165, 57, 0.2);
+        border: 0.5px solid var(--irish-green);
+    }
+
+    #filter_div .subfilter-div[data-selected="true"] button[data-selected="false"]:hover{
+        background-color: white !important;
+    }
+    
+    table, a, p{
+        font-size: 1em !important;
+    }
+
+    table{
+        width: 47vw;
+        margin-bottom: 2vh;
+    }
+
+    table colgroup col:nth-child(2){
+        width: 90px;
+    }
+
+    table colgroup col:nth-child(-n + 2){
+        border-right: 0.3vh solid var(--irish-green);
+    }
+
+    table .icon{
+        margin-left: 0.3em;
+    }
+
+    .legend:not(#desktop_legend){
+        display: none;
+    }
+
+    .mobile-hr{
+        display: none;
+    }
+
+    #search_by_room_div{
+        grid-column: 2;
+        grid-row: 1;
+        padding-left: 1vw;
+        border-left: 0.2vw solid var(--irish-green);
+    }
+
+    #search_by_room_map{
+        grid-template-columns: 2.64vw 3.40vw 4.15vw 1.59vw 4.46vw 5.29vw 5.29vw 2.34vw 3.17vw 3.10vw 2.49vw 3.02vw 2.42vw 2.64vw;
+        grid-template-rows: 5.59vh, 5.51vh, 6.04vh, 5.29vh, 2.42vh, 6.65vh;
+        width: 46vw;
+        /* total width 46vw 
+        total height 31.5vw */
+    }
+
+    #search_by_room_map button{
+        font-size: 1.05em;
+    }
+
+    #search_by_room_map button:nth-child(1){
+        /* height: 5.59vw; */
+        height: 2.79vw;
+    }
+    
+    #search_by_room_map button:nth-child(2){
+        /* height: 5.51vw; */
+        height: 2.76vw;
+    }
+    
+    #search_by_room_map button:nth-child(3){
+        /* height: 6.04vw; */
+        height: 3.02vw;
+    }
+    
+    #search_by_room_map button:nth-child(4){
+        /* height: 6.65vw; */
+        height: 3.32vw;
+    }
+    
+    #search_by_room_map button:nth-child(5){
+        /* height: 6.65vw; */
+        height: 3.32vw;
+    }
+    
+    #search_by_room_map button:nth-child(6){
+        /* height: 6.65vw; */
+        height: 3.32vw;
+    }
+    
+    #search_by_room_map button:nth-child(7){
+        /* height: 5.29vw; */
+        height: 2.64vw;
+    }
+    
+    #search_by_room_map button:nth-child(8){
+        /* height: 6.65vw; */
+        height: 3.32vw;
+    }
+    
+    #search_by_room_map button:nth-child(9){
+        /* height: 5.29vw; */
+        height: 2.64vw;
+    }
+    
+    #search_by_room_map button:nth-child(10){
+        /* height: 6.65vw; */
+        height: 3.32vw;
+    }
+    
+    #search_by_room_map button:nth-child(11){
+        /* height: 6.65vw; */
+        height: 3.32vw;
+    }
+    
+    #search_by_room_map button:nth-child(12){
+        /* height: 6.65vw; */
+        height: 3.32vw;
+    }
+    
+    #search_by_room_map button:nth-child(13){
+        /* height: 6.04vw; */
+        height: 3.02vw;
+    }
+    
+    #search_by_room_map button:nth-child(14){
+        /* height: 5.51vw; */
+        height: 2.76vw;
+    }
+    
+    #search_by_room_map button:nth-child(15){
+        /* height: 5.59vw; */
+        height: 2.79vw;
+    }
+
+    #hallway{
+        /* height: 3.53vh; */
+        height: 2.42vh;
+    }
+
+    label{
+        font-size: 1.125em;
+    }
+
+    .legend{
+        grid-column: 1 / span 2;
+    }
+
+    .icon{ 
+        /* height: 1em;
+        width: 1em; */
+        height: 0.6em;
+        width: 0.6em;
+    }
+
+    .legend p{
+        transition: background-size 0.3s ease 0.3s, color 0.3s ease 0.3s;
+    }
+
+    footer{
+        grid-column: 1 / span 2;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 1050px) and (orientation: landscape){
+    #search_by_room_map button{
+        height: 4em !important;
+    }
+}
+
+@media (max-width: 1000px) and (orientation: landscape){
+    #search_by_room_map button{
+        height: 3em !important;
+    }
+}

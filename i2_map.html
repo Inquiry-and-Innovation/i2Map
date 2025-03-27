@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<!--
+Ideas for improvement:
+    Fix the svg at refid#1
+    Add a filters thing
+        Award winner, type of presentation
+        Button below search box, filter icon (upsidedown equilaterial triangle) and "Filter"
+        Starts at width: fit-content, onclick changes to full width (100%) (MAYBE JUST KEEP AS FITCONTENT, MIGHT NOT NEED FULL WIDTH FOR TWO FILTERS), fill background with rgba(shamrock-green, 0.2)
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>i2 Showcase Map</title>
+    <link href="i2_map.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" href="images/cropped-i2-Logo-192x192.gif" sizes="192x192">
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://i2.today"><embed class="i2-logo" src="images/i2Logo_White_with_outline.svg"></a> <!-- FIX THIS refid#1 -->
+        <a href="https://shcp.edu"><img class="SHC-logo" src="images/White_SHC_Logo.png"></a>
+        <h1 class="primary-welcome-header">Welcome to the <i>i2</i> Showcase!</h1>
+    </div>
+    <div id="main">
+        <h1 class="alternate-welcome-header">Welcome to the <i>i2</i> Showcase!</h1>
+        <div id="search_by_name_div">
+            <div id="search_by_name_top_div">
+                <h2>Search For a Scholar By Name</h2>
+                <form id="search_by_name_form">
+                    <label for="class_of_select">Class of </label>
+                    <select name="class_of" id="class_of_select" onchange="newClassOfSelected()">
+                        <!-- Options added via JS -->
+                    </select>
+                    <select id="measure"></select>
+                    <br />
+                    <input name="q" id="search_box" type="text" placeholder="Search">
+                    <div id="filter_div">
+                        <button id="past_award_winner_filter" data-selected="false" onclick="updateFilters('past_award')" type="button">
+                            Past award winner 
+                            <a class="award-icon">&#x1F396;</a>
+                        </button>
+                        <div id="presentation_subfilter_div" class="subfilter-div" data-selected="false">
+                            <button id="open_presentation_subfilter" data-selected="false" onclick="updateSubfilters('presentation_format')" type="button">
+                                Presentation Format
+                            </button>
+                            <button id="physical_demonstration_filter" data-selected="false" onclick="updateFilters('physical_demonstration')" type="button">
+                                Physical Demonstration
+                            </button>
+                            <button id="digital_demonstration_filter" data-selected="false" onclick="updateFilters('digital_demonstration')" type="button">
+                                Digital Demonstration
+                            </button>
+                            <button id="infographics_only_filter" data-selected="false" onclick="updateFilters('infographics_only')" type="button">
+                                Infographics Only
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr id="search_by_name_desktop_hr" />
+            <div id="search_by_name_bottom_div">
+                <h2>Results</h2>
+                <table id="search_by_name_results_table">
+                    <colgroup>
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Name and Class</th>
+                            <th>Classroom</th>
+                            <th>Project Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <p id="search_by_name_no_results">No Scholars Found</p>
+            </div>
+            <div class="legend" id="mobile_legend">
+                <div class="legend-section">
+                    <a class="icon infographics-only"></a>
+                    <p id="mobile_legend_def1">Infographics Only</p>
+                </div>
+                <div class="legend-section">
+                    <a class="icon physical-prototype-demonstration"></a>
+                    <p id="mobile_legend_def2">Physical Prototype Demonstration</p>
+                </div>
+                <div class="legend-section">
+                    <a class="icon digital-prototype-demonstration"></a>
+                    <p  id="mobile_legend_def3">Digital Prototype Demonstration</p>
+                </div>
+                <div class="legend-section">
+                    <a class="award-icon">&#x1F396;</a>
+                    <p id="mobile_legend_def4">Past award winner</p>
+                </div>
+            </div>
+        </div>
+        <hr class="mobile-hr">
+        <div id="search_by_room_div">
+            <div id="search_by_room_top_div">
+                <h2>Search For a Scholar By Classroom</h2>
+                <form id="search_by_room_form">
+                    <label for="classroom_select">Classroom #</label>
+                    <select name="classroom" id="classroom_select" onchange="updateRoomScholarList()">
+                        <option>801</option>
+                        <option>802</option>
+                        <option>803</option>
+                        <option>804</option>
+                        <option>805</option>
+                        <option>806</option>
+                        <option>807</option>
+                        <option>808</option>
+                        <option>809</option>
+                        <option>810</option>
+                        <option>811</option>
+                        <option>812</option>
+                        <option>813</option>
+                        <option>814</option>
+                        <option>815</option>
+                    </select>
+                </form>
+                <div id="search_by_room_map">
+                    <button onclick="updateClassroomSelect('801')" data-selected="false">801</button>
+                    <button onclick="updateClassroomSelect('802')" data-selected="false">802</button>
+                    <button onclick="updateClassroomSelect('803')" data-selected="false">803</button>
+                    <button onclick="updateClassroomSelect('804')" data-selected="false">804</button>
+                    <button onclick="updateClassroomSelect('805')" data-selected="false">805</button>
+                    <button onclick="updateClassroomSelect('807')" data-selected="false">807</button>
+                    <button onclick="updateClassroomSelect('806')" data-selected="false">806</button>
+                    <button onclick="updateClassroomSelect('808')" data-selected="false">808</button>
+                    <button onclick="updateClassroomSelect('809')" data-selected="false">809</button>
+                    <button onclick="updateClassroomSelect('810')" data-selected="false">810</button>
+                    <button onclick="updateClassroomSelect('811')" data-selected="false">811</button>
+                    <button onclick="updateClassroomSelect('812')" data-selected="false">812</button>
+                    <button onclick="updateClassroomSelect('813')" data-selected="false">813</button>
+                    <button onclick="updateClassroomSelect('814')" data-selected="false">814</button>
+                    <button onclick="updateClassroomSelect('815')" data-selected="false">815</button>
+                    <div id="stairwell-1"></div>
+                    <div id="space-1"></div>
+                    <div id="hallway"></div>
+                    <div id="stairwell-2"></div>
+                    <div id="courtyard"></div>
+                </div>
+            </div>
+            <hr id="search_by_room_desktop_hr" />
+            <div id="search_by_room_bottom_div">
+                <h2>Results</h2>
+                <table id="search_by_room_results_table">
+                    <colgroup>
+                        <col />
+                        <col />
+                        <col />
+                        <col />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Name and Class</th>
+                            <th>Classroom</th>
+                            <th>Project Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <p id="search_by_room_no_results">No Scholars Found</p>
+            </div>
+        </div>
+        <div class="legend" id="desktop_legend">
+            <div class="legend-section">
+                <a class="icon infographics-only"></a>
+                <p id="desktop_legend_def1">Infographics Only</p>
+            </div>
+            <div class="legend-section">
+                <a class="icon physical-prototype-demonstration"></a>
+                <p id="desktop_legend_def2">Physical Prototype Demonstration</p>
+            </div>
+            <div class="legend-section">
+                <a class="icon digital-prototype-demonstration"></a>
+                <p id="desktop_legend_def3">Digital Prototype Demonstration</p>
+            </div>
+            <div class="legend-section">
+                <a class="award-icon">&#x1F396;</a>
+                <p id="desktop_legend_def4">Past award winner</p>
+            </div>
+        </div>
+        <!-- <hr class="footer-hr"> -->
+    </div>
+    <footer>
+        <small>
+            © <span id="year"></span> by Alexander Chang. All rights reserved.
+        </small>
+    </footer>
+    <script src="i2_map.js"></script>
+    <script src="scholars.js"></script>
+</body>
+
+</html>
