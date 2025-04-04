@@ -109,7 +109,7 @@ function makeScholarResultsListRow(scholar, destination_table_body, table_name, 
 
     // Make the classroom table data
     let classroom = document.createElement("td");
-    if(table_name == "search_by_name"){
+    if(table_name == "search_by_name" && all_classrooms.includes(scholar.classroom)){
         // Make the classroom link (a)
         let classroom_link = document.createElement("a");
         classroom_link.appendChild(document.createTextNode(scholar.classroom));
