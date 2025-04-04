@@ -370,6 +370,11 @@ tbody tr td:nth-child(3):not(:has(a)){
     /* Shamrock Green at 80% transparency */
 }
 
+tbody td {
+    padding-left: 0.25em;
+    padding-right: 0.25em;
+}
+
 a{
     text-decoration: none;
 }
