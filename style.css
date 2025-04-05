@@ -204,6 +204,7 @@ select{
 #class_of_select{
     border: none;
     width: 45.6px;
+    color: black;
 }
 
 option{
@@ -437,6 +438,7 @@ table .icon{
 #classroom_select{
     border: none;
     margin-bottom: 1vh;
+    color: black;
 }
 
 #search_by_room_map{
