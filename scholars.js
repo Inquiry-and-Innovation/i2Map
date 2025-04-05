@@ -37,7 +37,7 @@ const i2_scholars = [
     new Scholar("Jacob", "Chew", "2028", "803", "Repurposing Batteries", 2, "", "", "PPD", false),
     new Scholar("Christina", "Chew", "2027", "808", "Extracurricular 101", 1, "", "https://i2.today/christina-chew/", "DPD", false),
     new Scholar("Zach", "Chew", "2026", "814", "Brain Bridge", 1, "", "https://i2.today/zachary-chew/", "DPD", false),
-    new Scholar("Caylee", "Chin", "2028", "Outside 803", "FISH (Filter Infused Straw Hydrator)", 3, "", "", "IO", false),
+    new Scholar("Caylee", "Chin", "2028", "Outside 803", "FISH (Filter Infused Straw Hydrator)", 3, "", "", "PPD", false),
     new Scholar("Kyle", "Ching", "2028", "801", "Urban Heat Islands", 1, "", "", "DPD", false),
     new Scholar("Luke", "Chommanard", "2026", "808", "SHC Green Team", 4, "", "https://i2.today/luke-chommanard/", "IO", false),
     new Scholar("Annabel", "Chung", "2028", "811", "DIY Food Waste Decomposer", 1, "", "", "PPD", false),
