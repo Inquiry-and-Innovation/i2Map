@@ -118,7 +118,7 @@ const i2_scholars = [
     new Scholar("Ashley", "Wang", "2027", "808", "Seamus Asks", 1, "", "https://i2.today/ashley-wang/", "DPD", false),
     new Scholar("Matthew", "Wells", "2027", "811", "Ingredient Intel AI", 1, "", "https://i2.today/matthew-wells/", "DPD", false),
     new Scholar("Silver", "Wiesler", "2026", "812", "Kismet", 3, "", "https://i2.today/silver-wiesler/", "IO", false),
-    new Scholar("Silver", "Wiesler", "2026", "812", "FIRE (Framework for Intervention, Recover and Empowerment)", 1, "", "https://i2.today/silver-wiesler/", "PPD/DPD", false),
+    new Scholar("Silver", "Wiesler", "2026", "812", "FIRE (Framework for Intervention, Recover and Empowerment)", 1, "", "https://i2.today/silver-wiesler/", "PPD", false),
     new Scholar("Katie", "Worster", "2026", "802", "PowerEd", 3, "", "https://i2.today/katie-worster/", "DPD", false),
     new Scholar("Hayden", "Xie", "2027", "804", "Adeptic", 2, "", "https://i2.today/hayden-xie/", "PPD", false),
     new Scholar("Tesia", "Xu", "2027", "810", "Study Buddy", 3, "", "", "IO", false),
