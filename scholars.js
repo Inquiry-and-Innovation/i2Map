@@ -108,7 +108,7 @@ const i2_scholars = [
     new Scholar("Aanya", "Shah", "2026", "814", "Women in Sports", 1, "", "https://i2.today/aanya-shah/", "IO", false),
     new Scholar("Dashiell", "Snape", "2028", "803", "Cantelligence", 2, "", "", "DPD", false),
     new Scholar("Seth", "Suarez", "2026", "809", "F.L.O.A.T. — Floating Layered Oceanic Advanced Treatment", 1, "", "https://i2.today/seth-suarez/", "PPD", false),
-    new Scholar("Dagny", "Suro", "2027", "805", "Finding a Path", 1, "", "", "IO", false),
+    new Scholar("Dagny", "Suro", "2027", "805", "Finding a Path", 1, "", "", "IO", true),
     new Scholar("Max", "Tamburro", "2028", "804", "rAIn", 2, "", "", "DPD", false),
     new Scholar("Cruz", "Tengco", "2026", "812", "Education Enrichment Opportunities", 1, "", "", "IO", false),
     new Scholar("Leo", "Thomson", "2027", "807", "Project Perfect Swing", 1, "", "https://i2.today/leo-thomson/", "PPD", false),
