@@ -251,6 +251,7 @@ option:hover{
     /* appearance: unset; */
     font-family: var(--calluna-sans);
     padding: 0.5vh;
+    color: black;
     background-color: transparent;
     border: 0.5px solid transparent;
     border-radius: 1vh;
@@ -458,6 +459,7 @@ table .icon{
 #search_by_room_map button{
     border: 0;
     font-family: var(--calluna);
+    color: black;
     transition: background-color 0.5s, color 0.3s;
 }
 
