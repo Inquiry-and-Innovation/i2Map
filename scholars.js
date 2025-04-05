@@ -105,7 +105,7 @@ const i2_scholars = [
     new Scholar("Simran", "Phojanakong", "2026", "808", "SHC Green Team", 4, "", "https://i2.today/simran-phojanakong/", "IO", false),
     new Scholar("Bram", "Salverda", "2027", "815", "AI Fire Prevention", 1, "", "https://i2.today/bram-salverda-3/", "IO", false),
     new Scholar("Anna", "Schou", "2028", "801", "Eco Nets", 1, "", "", "IO", false),
-    new Scholar("Slava", "Shabelsky", "2026", "805", "Eyes for the Blind", 1, "", "https://i2.today/slava-shabelsky/", "PPD", false),
+    new Scholar("Slava", "Shabelsky", "2026", "805", "Eyes for the Blind", 1, "", "https://i2.today/slava-shabelsky/", "PPD", true),
     new Scholar("Aanya", "Shah", "2026", "808", "Women in Sports", 1, "", "https://i2.today/aanya-shah/", "IO", false),
     new Scholar("Dashiell", "Snape", "2028", "803", "Cantelligence", 2, "", "", "DPD", false),
     new Scholar("Seth", "Suarez", "2026", "809", "F.L.O.A.T. — Floating Layered Oceanic Advanced Treatment", 1, "", "https://i2.today/seth-suarez/", "PPD", false),
