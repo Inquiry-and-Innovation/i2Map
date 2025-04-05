@@ -58,6 +58,7 @@ const i2_scholars = [
     new Scholar("Amelia", "Gong", "2026", "813", "Effectivity and Morality of Bombing Cities in Wartime", 1, "", "https://i2.today/amelia-gong/", "IO", false),
     new Scholar("Matteo", "Gupta", "2026", "812", "Kismet", 3, "", "https://i2.today/matteo-gupta/", "IO", false),
     new Scholar("Bonnie", "Hatch", "2028", "805", "RainSmart", 3, "", "", "PPD", false),
+    new Scholar("Isabel", "Guzman", "2026", "Outside 810", "WearAware", 1, "", "https://i2.today/isabella-guzman/", "PPD", false),
     new Scholar("Tim", "Healey", "2026", "813", "Schema", 1, "", "https://i2.today/timothy-healey/", "DPD", false),
     new Scholar("Willem", "Henstock", "2026", "815", "APGeoBot", 1, "", "https://i2.today/willem-henstock-2/", "DPD", false),
     new Scholar("Michael", "Hernandez", "2028", "801", "A Greener Future", 1, "", "", "IO", false),
