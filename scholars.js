@@ -17,7 +17,7 @@ class Scholar{
 // Last updated 20 May 2024
 // Order will determine result order, best to sort alphabetically by last name
 const i2_scholars = [
-    new Scholar("Adam", "Abuzaid", "2029", "813", "AI & Water Use The Hidden Cost", 1, "", "", "DPD", false),
+    new Scholar("Adam", "Abuzaid", "2029", "", "AI & Water Use The Hidden Cost", 1, "", "", "DPD", false),
     new Scholar("Nico", "Aldaz", "2027", "812", "AquaMark", 1, "", "", "DPD", false),
     new Scholar("Thaze", "Antonio", "2029", "703", "Power Players", 2, "", "", "DPD", false),
     new Scholar("George", "Arriola", "2027", "Outside 803", "Avoiding Avoidance", 1, "", "", "IO", false),
@@ -47,6 +47,7 @@ const i2_scholars = [
     new Scholar("Charlotte", "Edwards", "2027", "802", "Bio-filtration device", 1, "", "", "PPD", false),
     new Scholar("Grayson", "Fong", "2029", "809", "Voice Directions Phone", 1, "", "", "PPD", false),
     new Scholar("Giovanna", "Fong", "2029", "803", "How Trees Affect the Weather", 1, "", "", "DPD", false),
+    new Scholar("Jack", "Freeman", "2027", "815", "Open Lang", 3, "", "", "IO", false),
     new Scholar("Darren", "Fung", "2028", "805", "Pill Sense", 2, "", "", "IO", true),
     new Scholar("Amelia", "Gumm", "2029", "803", "Sea Level Rise in San Francisco", 1, "", "", "IO", false),
     new Scholar("Logan", "Haber", "2027", "Outside 808", "SF Sports Facilities Research Project", 1, "", "", "IO", false),
@@ -67,6 +68,7 @@ const i2_scholars = [
     new Scholar("Kara", "Liu", "2028", "809", "Cypher Vision", 3, "", "", "DPD", false),
     new Scholar("Dennis", "Liu", "2028", "812", "NewsFlow.ai", 3, "", "", "DPD", false),
     new Scholar("Nhi", "Ly", "2028", "810", "GreenThread", 3, "", "", "DPD", false),
+    new Scholar("Evan", "Major", "2027", "815", "Open Lang", 3, "", "", "IO", false),
     new Scholar("Riley", "Mak", "2029", "811", "Train to Last", 1, "", "", "IO", false),
     new Scholar("Abigail", "Manlapaz", "2028", "810", "GreenThread", 3, "", "", "IO", false),
     new Scholar("Philip", "Marinov", "2027", "809", "IPABrew", 2, "", "", "DPD", false),
@@ -108,6 +110,7 @@ const i2_scholars = [
     new Scholar("Lulu", "Ware", "2027", "803", "Project Kelp", 2, "", "", "PPD", false),
     new Scholar("Matthew", "Wells", "2027", "812", "AI Bias Analysis", 1, "", "", "IO", false),
     new Scholar("Evie", "Wiesler", "2029", "808", "Fabric Forward", 1, "", "", "DPD", false),
+    new Scholar("Hayden", "Xie", "2027", "815", "Open Lang", 3, "", "", "IO", false),
     new Scholar("Tesia", "Xu", "2027", "804", "SHC Spaces Reimagined", 1, "", "", "IO", false),
     new Scholar("Aiden", "Yang", "2029", "808", "Mind quest", 1, "", "", "DPD", false),
     new Scholar("Brendon", "Yang", "2029", "811", "Bin Scan", 1, "", "", "DPD", false),
